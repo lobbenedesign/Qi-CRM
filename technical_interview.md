@@ -1,4 +1,4 @@
-# Guida Tecnica per Colloquio — Sovrano CRM (Architettura & Dettaglio Codice)
+# Guida Tecnica — Sovrano CRM (Architettura & Dettaglio Codice)
 
 Questo documento descrive in dettaglio l'architettura tecnica del progetto **Sovrano CRM**, analizzando file per file e spiegando dove e perché abbiamo usato **Node.js**, **React**, **Zustand**, **Tauri**, **Web Crypto API** e **Gemini Nano**.
 
