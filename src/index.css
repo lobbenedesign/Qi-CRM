@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sidebar-width: 240px;
+    --header-height: 56px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply bg-surface-50 text-surface-900;
+  }
+
+  .dark body {
+    @apply bg-surface-950 text-surface-100;
+  }
+
+  #root {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@layer components {
+  .auth-input {
+    @apply w-full px-3 py-2 text-sm rounded-lg border border-surface-200
+           bg-white text-surface-900 outline-none
+           focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500
+           placeholder:text-surface-400;
+  }
+  .dark .auth-input {
+    @apply border-surface-700 bg-surface-800 text-surface-100;
+  }
+  .sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium
+           text-surface-600 hover:text-surface-900 hover:bg-surface-100
+           transition-colors duration-150 cursor-pointer select-none;
+  }
+  .sidebar-item.active {
+    @apply bg-brand-50 text-brand-700;
+  }
+  .dark .sidebar-item {
+    @apply text-surface-400 hover:text-surface-100 hover:bg-surface-800;
+  }
+  .dark .sidebar-item.active {
+    @apply bg-brand-900/30 text-brand-300;
+  }
+
+  .kpi-card {
+    @apply bg-white rounded-lg border border-surface-200 p-4
+           shadow-sm hover:shadow-md transition-shadow;
+  }
+  .dark .kpi-card {
+    @apply bg-surface-900 border-surface-700;
+  }
+
+  .trust-badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+  .trust-badge.high   { @apply bg-trust-high/10 text-trust-high; }
+  .trust-badge.medium { @apply bg-trust-medium/10 text-trust-medium; }
+  .trust-badge.low    { @apply bg-trust-low/10 text-trust-low; }
+
+  .deal-card {
+    @apply bg-white rounded-md border border-surface-200 p-3
+           shadow-sm cursor-grab active:cursor-grabbing
+           hover:border-brand-300 hover:shadow-md transition-all;
+  }
+  .dark .deal-card {
+    @apply bg-surface-800 border-surface-700 hover:border-brand-500;
+  }
+
+  .pipeline-col {
+    @apply flex flex-col w-64 shrink-0 rounded-lg bg-surface-100 p-2;
+  }
+  .dark .pipeline-col {
+    @apply bg-surface-900;
+  }
+}
